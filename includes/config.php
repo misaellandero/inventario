@@ -12,9 +12,9 @@
 |
 |
 */
-  define( 'DB_HOST', 'localhost' );          // Set database host
-  define( 'DB_USER', 'root' );             // Set database user
-  define( 'DB_PASS', 'CornComputerInc1*' );             // Set database password
-  define( 'DB_NAME', 'ceyeme' );        // Set database name
+define( 'DB_HOST', 'sql132.main-hosting.eu' );          // Set database host
+define( 'DB_USER', 'u315449203_ceyem' );             // Set database user
+define( 'DB_PASS', 'ceyeme' );             // Set database password
+define( 'DB_NAME', 'u315449203_ceyem' );        // Set database name
 
 ?>

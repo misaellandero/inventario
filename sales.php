@@ -6,8 +6,7 @@
 ?>
 <?php
 $sales = find_all_sale();
-var_dump($sales);
-die();
+
 ?>
 <?php include_once('layouts/header.php'); ?>
 <div class="row">

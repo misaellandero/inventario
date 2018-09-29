@@ -15,17 +15,17 @@ if(!$sale){
 <?php
 
   if(isset($_POST['update_sale'])){
-    $req_fields = array('title','quantity','price','total', 'date' );
+    $req_fields = array('title','quantity','price','detalles', 'date' );
     validate_fields($req_fields);
         if(empty($errors)){
           $p_id      = $db->escape((int)$product['id']);
           $s_qty     = $db->escape((int)$_POST['quantity']);
-          $s_total   = $db->escape($_POST['total']);
+          $s_total   = $db->escape($_POST['detalles']);
           $date      = $db->escape($_POST['date']);
           $s_date    = date("Y-m-d", strtotime($date));
 
           $sql  = "UPDATE sales SET";
-          $sql .= " product_id= '{$p_id}',qty={$s_qty},price='{$s_total}',date='{$s_date}'";
+          $sql .= " product_id= '{$p_id}',qty={$s_qty},detalles='{$s_total}',date='{$s_date}'";
           $sql .= " WHERE id ='{$sale['id']}'";
           $result = $db->query($sql);
           if( $result && $db->affected_rows() === 1){
@@ -68,7 +68,7 @@ if(!$sale){
           <th> Product title </th>
           <th> Qty </th>
           <th> Price </th>
-          <th> Total </th>
+          <th> detalles </th>
           <th> Date</th>
           <th> Action</th>
          </thead>
@@ -86,7 +86,7 @@ if(!$sale){
                   <input type="text" class="form-control" name="price" value="<?php echo remove_junk($product['sale_price']); ?>" >
                 </td>
                 <td>
-                  <input type="text" class="form-control" name="total" value="<?php echo remove_junk($sale['price']); ?>">
+                  <input type="text" class="form-control" name="total" value="<?php echo remove_junk($sale['detalles']); ?>">
                 </td>
                 <td id="s_date">
                   <input type="date" class="form-control datepicker" name="date" data-date-format="" value="<?php echo remove_junk($sale['date']); ?>">

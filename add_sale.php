@@ -7,17 +7,17 @@
 <?php
 
   if(isset($_POST['add_sale'])){
-    $req_fields = array('s_id','quantity','price','total', 'date' );
+    $req_fields = array('s_id','quantity','price','detalles', 'date' );
     validate_fields($req_fields);
         if(empty($errors)){
           $p_id      = $db->escape((int)$_POST['s_id']);
           $s_qty     = $db->escape((int)$_POST['quantity']);
-          $s_total   = $db->escape($_POST['total']);
+          $s_total   = $db->escape($_POST['detalles']);
           $date      = $db->escape($_POST['date']);
           $s_date    = make_date();
 
           $sql  = "INSERT INTO sales (";
-          $sql .= " product_id,qty,price,date";
+          $sql .= " product_id,qty,detalles,date";
           $sql .= ") VALUES (";
           $sql .= "'{$p_id}','{$s_qty}','{$s_total}','{$s_date}'";
           $sql .= ")";
@@ -71,7 +71,7 @@
             <th> Producto </th>
             <th> Precio </th>
             <th> Cantidad </th>
-            <th> Total </th>
+            <th> detalles </th>
             <th> Agregado</th>
             <th> Acciones</th>
            </thead>
